@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+
+.main{
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 10px;
+    width: 500px;
+    background-color: #f7f7f7;
+    border: 1px solid black;
+}
+
+.main__inner{
+    margin: 30px auto;
+    padding: 1.1rem;
+}
+
+.profit_table{
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 1rem;
+    box-shadow:  0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.income p{
+    text-align: center;
+    color: green;
+}
+
+.expense p{
+    text-align: center;
+    color: red;
+}
+
+.history_field{
+    margin: 20px 0;
+}
+
+.history_field h3{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #bbb;
+}
+
+.list {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 40px;
+}
+
+.sublist{
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.plus {
+    border-right: 5px solid #2ecc71;
+}
+
+.minus{
+    border-right: 5px solid #ca1616;
+}
+
+.add_transaction h3 {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #bbb;
+    margin-bottom: 20px;
+}
+
+form {
+    display: block;
+    margin-top: 0em;
+}
+
+label {
+    display: inline-block;
+    margin: 10px 0;
+}
+
+input{
+    border: 1px solid #dedede;
+    border-radius: 2px;
+    display: block;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+}
+
+.btn {
+    cursor: pointer;
+    background-color: #68c55f;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    color: #fff;
+    border: 0;
+    display: block;
+    font-size: 16px;
+    margin: 10px 0 30px;
+    padding: 10px;
+    width: 100%;
+}
+
+.btn-delete{
+    cursor: pointer;
+    background-color: #e74c3c;
+    border: 0;
+    color: #fff;
+    font-size: 20px;
+    line-height: 20px;
+    padding: 2px 5px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-100%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.btn-delete:hover{
+    opacity: 1;
+}
+
+.btn:hover{
+    background-color: #49bd3f;
+}
+
+h2 {
+    text-align: center;
+}
