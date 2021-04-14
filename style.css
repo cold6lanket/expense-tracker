@@ -5,14 +5,15 @@
     font-family: sans-serif;
 }
 
+body{
+    background-color: #f7f7f7;
+}
 
 .main{
     min-height: 100vh;
     margin: 0 auto;
     padding: 10px;
     width: 500px;
-    background-color: #f7f7f7;
-    border: 1px solid black;
 }
 
 .main__inner{
