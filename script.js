@@ -10,11 +10,13 @@ const expense = document.querySelector('.expense > p span');
 // Buttons
 const addBtn = document.querySelector('.btn');
 const deleteBtn = document.querySelector('.btn-delete');
+const itemList = document.querySelector('.list');
 
 let curIncome = 0;
 let curExpense = 0;
 
 addBtn.addEventListener('click', getDynamicInfo);
+itemList.addEventListener('click', deleteItem);
 
 function createHistoryUI(text, amount) {
     const parentElement = document.querySelector('.list');
@@ -26,13 +28,15 @@ function createHistoryUI(text, amount) {
         newLi.classList.add('plus');
         newLi.innerHTML = `
             ${text}
-            <span>+${amount}</span>
+            <span class="span">+${amount}</span>
+            <button class="btn-delete">x</button>
         `;
     } else {
         newLi.classList.add('minus');
         newLi.innerHTML = `
             ${text}
-            <span>${amount}</span>
+            <span class="span">${amount}</span>
+            <button class="btn-delete">x</button>
         `;
     }
 
@@ -73,3 +77,36 @@ function calculateData(amount) {
     balance.textContent = overallBalance;
 }
 
+function reCalculate(price) {
+    if (price >= 0) {
+        curIncome = curIncome - price;
+        income.textContent = curIncome;
+        //console.log(curIncome);
+    }
+
+    if (price < 0) {
+        curExpense = curExpense + price;
+        expense.textContent = curExpense;
+    }
+
+    const overallBalance = curIncome + curExpense;
+    balance.textContent = overallBalance;
+}
+
+function deleteItem(e) {
+    const item = e.target;
+    const el = item.parentElement.children;
+
+    [...el].forEach(i => {
+        if (i.classList[0] === 'span') {
+            const price = parseInt(i.textContent);
+            
+            return reCalculate(price);
+        }
+    });
+
+    // delete li element
+    if (item.classList[0] === 'btn-delete') {
+        item.parentElement.remove();
+    }
+}
