@@ -81,7 +81,6 @@ function reCalculate(price) {
     if (price >= 0) {
         curIncome = curIncome - price;
         income.textContent = curIncome;
-        //console.log(curIncome);
     }
 
     if (price < 0) {
@@ -97,16 +96,24 @@ function deleteItem(e) {
     const item = e.target;
     const el = item.parentElement.children;
 
-    [...el].forEach(i => {
-        if (i.classList[0] === 'span') {
-            const price = parseInt(i.textContent);
-            
-            return reCalculate(price);
-        }
-    });
-
     // delete li element
     if (item.classList[0] === 'btn-delete') {
+        
+        [...el].forEach(i => {
+            if (i.classList[0] === 'span') {
+                const price = parseInt(i.textContent);
+                
+                return reCalculate(price);
+            }
+        });
+
         item.parentElement.remove();
     }
+
+    // check whether parentelement has its childelements or not
+    // if (!el) {
+    //     income.textContent = 0;
+    //     expense.textContent = 0;
+    //     balance.textContent = 0;
+    // } 
 }
