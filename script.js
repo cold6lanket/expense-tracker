@@ -84,7 +84,7 @@ function reCalculate(price) {
     }
 
     if (price < 0) {
-        curExpense = curExpense + price;
+        curExpense = curExpense - price;
         expense.textContent = curExpense;
     }
 
@@ -109,11 +109,5 @@ function deleteItem(e) {
 
         item.parentElement.remove();
     }
-
-    // check whether parentelement has its childelements or not
-    // if (!el) {
-    //     income.textContent = 0;
-    //     expense.textContent = 0;
-    //     balance.textContent = 0;
-    // } 
+    
 }
