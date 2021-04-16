@@ -49,7 +49,7 @@ function createHistoryUI(text, amount) {
 
 function getDynamicInfo(e) {
     e.preventDefault();
-    
+
     const inputText = transactionText.value;
     const inputAmount = transactionAmount.value;
 
@@ -76,6 +76,8 @@ function calculateData(amount) {
 
     const overallBalance = curIncome + curExpense;
     balance.textContent = overallBalance;
+    
+    renderChart(chart, [curIncome, curExpense]);
 }
 
 function reCalculate(price) {
@@ -115,19 +117,17 @@ function deleteItem(e) {
 
 const ctx = document.getElementById('myChart').getContext('2d');
 
-const data = {
+let data = {
     labels: [
-        'Red',
-        'Blue',
-        'Yellow'
+        'Income',
+        'Expense',
     ],
     datasets: [{
         label: 'My First Dataset',
-        data: [300, 50, 100],
+        data: [0, 0],
         backgroundColor: [
             'rgb(255, 99, 132)',
             'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
         ],
         hoverOffset: 4
     }],
@@ -137,9 +137,24 @@ const data = {
     }
 };
 
-const config = {
+let config = {
     type: 'pie',
     data: data,
 };
 
 const chart = new Chart(ctx, config);
+
+function renderChart(chart, data) {
+    chart.data.datasets.pop();
+    chart.data.datasets.push({
+        label: 'Income and Expense',
+        data: data,
+        backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)',
+        ],
+        hoverOffset: 4
+    });
+    chart.update();
+}
+
