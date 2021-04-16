@@ -1,5 +1,4 @@
 // retrive dom elements
-
 // input elements
 const transactionText = document.querySelector('#text');
 const transactionAmount = document.querySelector('#amount');
@@ -54,7 +53,8 @@ function getDynamicInfo(e) {
     const inputAmount = transactionAmount.value;
 
     if (inputText != '' && inputAmount != '') {
-        return createHistoryUI(inputText, inputAmount), calculateData(inputAmount);
+        createHistoryUI(inputText, inputAmount);
+        calculateData(inputAmount);
     } else {
         transactionText.value = '';
         transactionAmount.value = '';
@@ -76,7 +76,7 @@ function calculateData(amount) {
 
     const overallBalance = curIncome + curExpense;
     balance.textContent = overallBalance;
-    
+
     renderChart(chart, [curIncome, curExpense]);
 }
 
@@ -93,6 +93,8 @@ function reCalculate(price) {
 
     const overallBalance = curIncome + curExpense;
     balance.textContent = overallBalance;
+
+    renderChart(chart, [curIncome, curExpense]);
 }
 
 function deleteItem(e) {
@@ -115,6 +117,8 @@ function deleteItem(e) {
     
 }
 
+// create chart
+
 const ctx = document.getElementById('myChart').getContext('2d');
 
 let data = {
@@ -124,7 +128,7 @@ let data = {
     ],
     datasets: [{
         label: 'My First Dataset',
-        data: [0, 0],
+        data: [50, 50],
         backgroundColor: [
             'rgb(255, 99, 132)',
             'rgb(54, 162, 235)',
@@ -145,6 +149,7 @@ let config = {
 const chart = new Chart(ctx, config);
 
 function renderChart(chart, data) {
+
     chart.data.datasets.pop();
     chart.data.datasets.push({
         label: 'Income and Expense',
