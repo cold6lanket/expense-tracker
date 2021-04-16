@@ -12,8 +12,14 @@
         <h2>Expense Tracker</h2>
         <div class="main__inner">
             <div class="balance_field">
-                <h3>Your balance: </h3>
-                <h1 id="balance">$<span>0.00</span></h1>
+                <div class="balance__inner">
+                    <h3>Your balance</h3>
+                    <h1 id="balance">$<span>0.00</span></h1>
+                </div>
+
+                <div class="chart_container">
+                    <canvas id="myChart"></canvas>
+                </div>
             </div>
             <div class="profit_table">
     
@@ -55,6 +61,7 @@
         </div>
         
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

@@ -21,6 +21,17 @@ body{
     padding: 1.1rem;
 }
 
+.balance_field{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chart_container {
+    width: 200px;
+    height: 200px
+}
+
 .profit_table{
     display: flex;
     justify-content: space-around;
