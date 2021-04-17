@@ -22,24 +22,16 @@ itemList.addEventListener('click', deleteItem);
 function createHistoryUI(text, amount) {
     const parentElement = document.querySelector('.list');
     const newLi = document.createElement('li');
+    const sign = amount < 0 ? '' : '+';
 
     newLi.classList.add('sublist');
+    newLi.classList.add(amount < 0 ? 'minus' : 'plus');
 
-    if (amount > 0) {
-        newLi.classList.add('plus');
-        newLi.innerHTML = `
-            ${text}
-            <span class="span">+${amount}</span>
-            <button class="btn-delete">x</button>
-        `;
-    } else {
-        newLi.classList.add('minus');
-        newLi.innerHTML = `
-            ${text}
-            <span class="span">${amount}</span>
-            <button class="btn-delete">x</button>
-        `;
-    }
+    newLi.innerHTML = `
+        ${text}
+        <span class="span">${sign}${amount}</span>
+        <button class="btn-delete">x</button>
+    `;
 
     parentElement.appendChild(newLi);
 
@@ -51,7 +43,7 @@ function getDynamicInfo(e) {
     e.preventDefault();
 
     const inputText = transactionText.value;
-    const inputAmount = transactionAmount.value;
+    const inputAmount = parseInt(transactionAmount.value);
 
     if (inputText != '' && inputAmount != '') {
         createHistoryUI(inputText, inputAmount);
@@ -66,12 +58,12 @@ function getDynamicInfo(e) {
 function calculateData(amount) {
 
     if (amount > 0 || amount == 0) {
-        curIncome = parseInt(amount) + parseInt(curIncome);
+        curIncome += amount;
         income.textContent = curIncome;
     }
 
     if (amount < 0) {
-        curExpense = parseInt(amount) + parseInt(curExpense);
+        curExpense += amount;
         expense.textContent = curExpense;
     }
 
@@ -83,12 +75,12 @@ function calculateData(amount) {
 
 function reCalculate(price) {
     if (price >= 0) {
-        curIncome = curIncome - price;
+        curIncome -= price;
         income.textContent = curIncome;
     }
 
     if (price < 0) {
-        curExpense = curExpense - price;
+        curExpense -= price;
         expense.textContent = curExpense;
     }
 
