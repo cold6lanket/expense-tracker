@@ -130,8 +130,8 @@ let data = {
         label: 'My First Dataset',
         data: [50, 50],
         backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
+            'rgb(0, 128, 0)',
+            'rgb(248, 0, 0)',
         ],
         hoverOffset: 4
     }],
@@ -142,7 +142,7 @@ let data = {
 };
 
 let config = {
-    type: 'pie',
+    type: 'doughnut',
     data: data,
 };
 
