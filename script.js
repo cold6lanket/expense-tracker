@@ -58,7 +58,7 @@ function getDynamicInfo(e) {
     } else {
         transactionText.value = '';
         transactionAmount.value = '';
-        alert('input does not have data in it');
+        alert('incorrect data');
     }
 }
 
