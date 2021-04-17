@@ -130,8 +130,8 @@ let data = {
         label: 'My First Dataset',
         data: [50, 50],
         backgroundColor: [
-            'rgb(0, 128, 0)',
-            'rgb(248, 0, 0)',
+            'rgb(77, 209, 77)',
+            'rgb(231, 65, 65)',
         ],
         hoverOffset: 4
     }],
