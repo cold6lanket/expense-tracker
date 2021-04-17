@@ -14,6 +14,7 @@ const itemList = document.querySelector('.list');
 
 let curIncome = 0;
 let curExpense = 0;
+const ctx = document.getElementById('myChart').getContext('2d');
 
 addBtn.addEventListener('click', getDynamicInfo);
 itemList.addEventListener('click', deleteItem);
@@ -118,8 +119,6 @@ function deleteItem(e) {
 }
 
 // create chart
-
-const ctx = document.getElementById('myChart').getContext('2d');
 
 let data = {
     labels: [
