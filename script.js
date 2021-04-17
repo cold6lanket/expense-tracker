@@ -155,8 +155,8 @@ function renderChart(chart, data) {
         label: 'Income and Expense',
         data: data,
         backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
+            'rgb(77, 209, 77)',
+            'rgb(231, 65, 65)',
         ],
         hoverOffset: 4
     });
